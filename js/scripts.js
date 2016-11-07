@@ -915,7 +915,12 @@
     $(document).ready(function() {
         $(window).load(function() {
             $('#preloader').delay(1000).fadeOut('400', function() {
-                    $(this).fadeOut()
+                    $(this).fadeOut();
+                    window['optimizely'] = window['optimizely'] || [];
+                    window['optimizely'].push({
+                      type: "page",
+                      pageName: "home"
+                    });
             });
             $('body').append('<div class="awe-popup-overlay" id="awe-popup-overlay"></div><div class="awe-popup-wrap" id="awe-popup-wrap"><div class="awe-popup-content"></div><span class="awe-popup-close" id="awe-popup-close"></div>');
             GalleryIsotope();
